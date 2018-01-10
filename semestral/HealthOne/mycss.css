@@ -1,0 +1,38 @@
+#header {
+    min-height: 200px;
+}
+
+.centrovano {
+    text-align: center;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#content {
+    min-height: calc(100vh - 102px);
+}
+
+footer {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    background-color: #222;
+    color: #9d9d9d;
+    font-size: larger;
+    text-align: center;
+}
+.fooclass{
+    margin-top: 0.2%;
+}
+#tasks-nav{
+    color: black;
+}
+.ukoly{
+    margin-top: 5%;
+}

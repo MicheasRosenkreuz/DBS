@@ -1,0 +1,21 @@
+# aktivace prepisovaciho mechanizmu pro URL
+RewriteEngine On
+
+# zakaz zobrazovani obsahu adresaru
+# 403 pro adresare ktere neobsahuji index soubor
+Options -Indexes
+
+# zakladni adresa pro prepisovani. Je potreba pokud aplikaci mame v podadresari.
+# RewriteBase /weap/
+
+# Prepisovaci podminky
+# viz: http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html#rewritecond
+# nebudeme prepisovat URL pro existujici adresare
+RewriteCond %{REQUEST_FILENAME} !-d
+# ani pro existujci soubory
+RewriteCond %{REQUEST_FILENAME} !-f
+# ani pro symbolicke odkazy
+RewriteCond %{REQUEST_FILENAME} !-l
+# prepis vsechna splnujici podminky na tvar index.php s parametrem url
+# vice zde: http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html#rewriterule
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
