@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 --
 
 --
+-- delete tables
+--
+
+DELETE FROM recept_leky;
+DELETE FROM recept;
+DELETE FROM pojistovna;
+DELETE FROM leky;
+DELETE FROM nemocnice;
+DELETE FROM lekar;
+DELETE FROM zaznam;
+DELETE FROM pacient;
+
+--
 -- Vypisuji data pro tabulku `lekar`
 --
 
@@ -34,7 +47,10 @@ INSERT INTO `lekar` (`lekar_id`, `nemocnice_id`, `heslo`, `specializace`, `jmeno
 --
 
 INSERT INTO `leky` (`lek_id`, `jmeno`, `ucel`, `vedlejsi_ucinky`) VALUES
-(1, 'MicheasuvPrd', 'Vonavy', 'Slzeni oci');
+(1, 'MicheasuvPrd', 'Vonavy', 'Slzeni oci'),
+(2, 'Paralen', 'Zabiják bolesti', 'Nic neléčí'),
+(3, 'Brufen', 'Zabiják bolesti', 'Bolest hlavy')
+;
 
 --
 -- Vypisuji data pro tabulku `nemocnice`
@@ -80,7 +96,8 @@ INSERT INTO `recept_leky` (`recept_id`, `lek_id`, `davkovani`) VALUES
 (2, 1, 'asdasd'),
 (3, 1, 'asdasd'),
 (4, 1, 'asdasd'),
-(5, 1, 'Hodně vody, furt');
+(5, 1, 'Hodně vody, furt'),
+(5, 3, '1x denně');
 
 --
 -- Vypisuji data pro tabulku `zaznam`
