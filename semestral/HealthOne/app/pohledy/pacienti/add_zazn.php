@@ -7,7 +7,7 @@
 			<option>Bez léku</option>
 			<?php $sal = $this->_data['pacienti'];
 				for ($i = 0; $i < sizeof($sal); $i++) {?>
-					<option><?php echo $sal[$i]->jmeno ?></option>
+					<option value=""><?php echo $sal[$i]->jmeno ?></option>
 			<?php }?>
 		</select>
 		<div class="form-group">

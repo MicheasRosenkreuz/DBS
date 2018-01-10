@@ -35,7 +35,7 @@
                             <a href="recepty">RECEPTY</a>
                         </li>
 						<li>
-                            <a href="recepty">DOKTOŘI</a>
+                            <a href="doktori">DOKTOŘI</a>
                         </li>
                     </ul><?php } ?>
                 <ul class="nav navbar-nav navbar-right">

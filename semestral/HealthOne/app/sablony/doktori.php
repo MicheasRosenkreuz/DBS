@@ -35,7 +35,7 @@
                             <a href="recepty">RECEPTY</a>
                         </li>
 						<li>
-                            <a href="recepty">DOKTOŘI</a>
+                            <a href="doktori">DOKTOŘI</a>
                         </li>
                     </ul><?php } ?>
                 <ul class="nav navbar-nav navbar-right">
@@ -47,12 +47,6 @@
             </div>
         </nav>
         <div id="content" class="container">
-            <div>
-                <div class="col-sm-6 col-xs-6 prepinace">
-                    <a href="?sel=all"><button class="btn btn-lg" id="vsechny">Vsechny</button></a>
-                    <a href="?sel=byid"><button class="btn btn-lg" id="splnene">Jen pro přihlášeného doktora</button></a>               
-                </div>
-            </div>
             <div class="row" style="text-align: center">
                 <?php echo $content; ?>
             </div>
