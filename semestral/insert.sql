@@ -40,7 +40,7 @@ DELETE FROM pacient;
 --
 
 INSERT INTO `lekar` (`lekar_id`, `nemocnice_id`, `heslo`, `specializace`, `jmeno`, `prijmeni`, `telefon`, `adresa`) VALUES
-(1, 5, 'aeBohcase4qu', 'chirurg', 'Josef', 'Peřina', '602181850', 'Pivovarská 1984, 411 42 Ploskovice'),
+(1, 5, 'admin', 'chirurg', 'Josef', 'Peřina', '602181850', 'Pivovarská 1984, 411 42 Ploskovice'),
 (2, 5, 'Yeechoh1oo', 'psycholog', 'Roman', 'Řídký', '777704357', 'Erbenova 1412, 517 61 Rokytnice v Orlických horách'),
 (3, 1, 'laiT7Ephei', 'praktický lékař', 'Libuše', 'Kovářová', '730732471', 'Mlýnská 332, 588 42 Vetrný Jeníkov'),
 (4, 8, 'Feahoh3ae', 'chirurg', 'Petr', 'Linhart', '551682616', 'Za učilištěm 1121, 741 01 Nový Jicín 1'),
