@@ -1,0 +1,29 @@
+﻿car(car_id, car_name, popis)
+reservation(reservation_id, user_id, car_id, id_odkud, id_kam, datum_jizdy, status_rezervace)
+user(user_id, user_name, adress)
+parking(park_id, adress, gps)
+
+Je tam tabulka User, ta má id, jméno a adresu,
+potom je tam tabulka Car která má jméno, id a popis,
+dál tam je Parking s vlastním id, adresou a GPS A 
+nakonec tabulka Reservations, která má svoje id, 
+id usera, id parkoviště ze kterého pojede, id parkoviště 
+kam přijede, datum jízdy, id auta, status rezervace a to
+je snad všecko Rezervace má vlastně dvě data, od a do
+
+
+2) Pomocí SQL vypište pro všechny uživatele z tab. User počet jejich rezervací (user_name, pocet).
+Pro uživatele, kteří nemají žádné rezervace bude ve výpisu hodnota NULL.(3)
+3) Pomocí SQL vypište osoby (user_name), které jely, chtěli jet nebo chtějí jet dva a vícekrát (liší se jen atribut status)
+stejným autem ze stejného parkoviště.(3)
+4) Pomocí SQL vypište jména osob(user_name), které nikdy nikam nejeli.
+5) Pomocí SQL vypište přehled jízd - KDO (user_name), s čím (car_name), ODKUD(departture, tj. parking_name),
+KAM(arrival, tj. parking_name) a KDY(start_time)(3)
+6) Vysvětlete parcialitu vztahu User - Reservation(1)
+7) Napište část DDL skriptu, kterým byste nastavili unikčnost atributu car_name z tab. Car(1)
+
+2)
+
+
+
+6)Každý uživatel MůŽE mít více rezervací a každá rezervace MUSÍ mít uživatele...
