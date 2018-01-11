@@ -24,8 +24,8 @@ drop table IF EXISTS pacient;
 
 
 Create table pacient (
-	pacient_rc Int NOT NULL,
-	superpojistenec_rc Int,
+	pacient_rc Bigint NOT NULL,
+	superpojistenec_rc Bigint,
 	lekar_id Int NOT NULL,
 	kod_pojistovny Int,
 	jmeno Varchar(50) NOT NULL,
@@ -36,7 +36,7 @@ Create table pacient (
  Primary Key (pacient_rc)) ENGINE = MyISAM;
 
 Create table zaznam (
-	pacient_rc Int NOT NULL,
+	pacient_rc Bigint NOT NULL,
 	lekar_id Int NOT NULL,
 	diagnoza Text NOT NULL,
 	datum Timestamp NOT NULL,
