@@ -16,7 +16,7 @@
             <?php
             if(isset($pacienti)) {
                 foreach ($pacienti as $row) {
-                    $id = (int) ($row->rc);
+                    $id = $row->rc;
             ?>
             <tr class = "cursor-pointer">
                 <td><a href="?id=<?= $id ?>" style="display: block"><?= $id ?></a></td>

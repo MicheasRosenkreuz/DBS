@@ -14,13 +14,13 @@ class Pacienti {
      * @return array s indexy:  {rc, pacient, adresa, telefon, email, lekar, pojistovna, superpojistenec}
      */
     public function selectTablePacient() {
-        $sql = "SELECT pacient.pacient_rc as rc, CONCAT(pacient.jmeno, ' ', pacient.prijmeni) as pacient,
-  pacient.adresa as adresa, pacient.telefon as telefon, pacient.email as email,
+        $sql = "SELECT p.pacient_rc as rc, CONCAT(p.jmeno, ' ', p.prijmeni) as pacient,
+  p.adresa as adresa, p.telefon as telefon, p.email as email,
   CONCAT(lekar.jmeno, ' ',  lekar.prijmeni) as lekar, pojistovna.nazev as pojistovna,
-  CONCAT(superpa.jmeno, ' ', superpa.prijmeni) as superpojistenec
-FROM pacient join pojistovna on pacient.kod_pojistovny=pojistovna.kod_pojistovny
-  left join pacient as superpa on pacient.pacient_rc=superpa.superpojistenec_rc
-  join lekar on pacient.lekar_id=lekar.lekar_id";
+  CONCAT(s.jmeno, ' ', s.prijmeni) as superpojistenec
+FROM pacient p join pojistovna on p.kod_pojistovny=pojistovna.kod_pojistovny
+  left join pacient s on p.superpojistenec_rc=s.pacient_rc
+  join lekar on p.lekar_id=lekar.lekar_id;";
         $result = $this->db->query($sql);
         return $result->fetchAll();
     }
@@ -32,15 +32,17 @@ FROM pacient join pojistovna on pacient.kod_pojistovny=pojistovna.kod_pojistovny
 	public function getAllById($id) {
 		$params = array(':Lekar_id' => $id);
 		$sql = "SELECT pacient_rc as pacient_rc, jmeno as pacient_jm, prijmeni as pacient_pr, adresa as pacient_adr, telefon as pacient_tel, email as pacient_email
-FROM pacient WHERE pacient_rc in(select distinct p.pacient_rc from pacient p join zaznam z on p.pacient_rc=z.pacient_rc WHERE :Lekar_id = z.lekar_id);";
+FROM pacient WHERE pacient_rc in(select distinct pacient_rc from zaznam WHERE :Lekar_id = lekar_id);";
 		$query = $this->db->prepare($sql);
 		$query->execute($params);
 		return $query->fetchAll();
 	}
 	public function getDetailOfPacient($id) {
 		$params = array(':pacient_rc' => $id);
-		$sql = "SELECT diagnoza, p.jmeno as pacient_jm, p.prijmeni as pacient_pr, p.pacient_rc as pacient_rc FROM zaznam, pacient p, lekar l
-				WHERE zaznam.pacient_rc = :pacient_rc and p.pacient_rc = :pacient_rc and l.lekar_id = zaznam.lekar_id";
+		$sql = "select diagnoza, p.jmeno as pacient_jm, p.prijmeni as pacient_pr, p.pacient_rc as pacient_rc
+FROM zaznam z
+JOIN pacient p ON z.pacient_rc=p.pacient_rc
+WHERE z.pacient_rc=:pacient_rc;";
 		$query = $this->db->prepare($sql);
 		$query->execute($params);
 		return $query->fetchAll();

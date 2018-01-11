@@ -13,8 +13,7 @@
             <?php
             if(isset($pacienti)) {
             foreach ($pacienti as $row) {
-            $id = (int) ($row->pacient_rc);
-            $id = intval($id);
+            $id =  ($row->pacient_rc);
             ?>
 
             <tr class = "cursor-pointer">
