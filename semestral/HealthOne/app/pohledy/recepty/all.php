@@ -12,8 +12,8 @@
             <?php
             if(isset($recepty)) {
                 foreach ($recepty as $row) {
-                    $id = intval ($row->recept_id);
-                    $id_l = intval ($row->lek_id);
+                    $id = ($row->recept_id);
+                    $id_l = ($row->lek_id);
                     ?>
                     <tr class = "cursor-pointer">				
                         <td><a href="?id=<?= $id ?>&id_l=<?= $id_l ?>" style="display: block"><?= $row->recept_id ?></a></td>

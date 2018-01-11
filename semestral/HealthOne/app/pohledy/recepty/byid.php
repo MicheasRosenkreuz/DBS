@@ -12,8 +12,7 @@
             <?php
             if(isset($recepty)) {
                 foreach ($recepty as $row) {
-                    $id = (int) ($row->recept_id);
-                    $id = intval($id);
+                    $id = ($row->recept_id);
                     ?>
                     <tr class = "cursor-pointer">				
                         <td><a href="?id=<?= $id ?>" style="display: block"><?= $row->recept_id ?></a></td>

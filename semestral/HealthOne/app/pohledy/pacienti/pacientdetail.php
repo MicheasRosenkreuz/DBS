@@ -16,7 +16,7 @@
             </tr>	
 			<?php $sal = $this->_data['pacienti'];
                 for ($i = 0; $i < sizeof($sal); $i++) {
-                    $id = (int) ($sal[$i]->pacient_rc);
+                    $id = ($sal[$i]->pacient_rc);
                     ?>
                     <tr>				
                         <td></td><td><?php echo $sal[$i]->diagnoza ?></td>
